@@ -16,6 +16,7 @@ class CriarTabelaTemporadas extends Migration
          Schema::create('temporadas', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('numero');
+                        $table->integer('episodios');
 			$table->string('comentario');
 			$table->string('imagem');
 			$table->integer('detalhes_id');

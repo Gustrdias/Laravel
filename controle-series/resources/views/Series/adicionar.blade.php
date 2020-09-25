@@ -7,7 +7,7 @@
 	</div>
 	<div class="col-sm-6">
   <h2>Cadastrar Series</h2>        
-	<form method="post" action="/Series">
+  <form method="post" action="/Series" enctype="multipart/form-data">
 	@csrf
 		<div class="input-group">
 			<label for="nomeSerie">Nome:</label>
@@ -26,37 +26,14 @@
 			</select>
 			</div>
 			<div>
-				<label  for="idioma">idioma </label>
-				<input type="text" id="idioma" name="idioma">
+				<label  for="assistido">Assistido </label>
+				<input type="text" id="assistido" name="assistido">
 			</div>
 			<div>
-				<label  for="temporada">temporada </label>
-				<input type="text" id="temporada" name="temporada">
-			</div>
-			<div>
-				<label  for="duracao">duracao </label>
-				<input type="text" id="duracao" name="duracao">
-			</div>
-			<div>
-				<label  for="legenda">legenda </label>
-				<input type="text" id="legenda" name="legenda">
-			</div>
-			<div>
-				<label  for="episodios">episodios </label>
-				<input type="text" id="" name="episodios">
-			</div>
-			<div>
-				<label  for="comentario">comentario </label>
-				<input type="text" id="comentario" name="comentario">
-			</div>
-			<div>
-				<label  for="avaliacao">avaliacao </label>
+				<label  for="avaliacao">Avaliacao </label>
 				<input type="text" id="avaliacao" name="avaliacao">
 			</div>
-			<div>
-				<label  for="ano">ano </label>
-				<input type="text" id="ano" name="ano">
-			</div>
+                        <input type="file" name="imagem" id="imagem">
 		<button class="btn btn-primary mt-2">Adicionar</button>
 	</form>
   </div>

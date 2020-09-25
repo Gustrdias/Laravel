@@ -8,8 +8,8 @@ class listaController extends Controller
 {
 	public function index(){
 		$series = Serie::query()->orderBy('nome')->get();
-		$detalhes = Detalhe::query()->get();
-		return view('Series.lista',['series' => $series,'detalhes' => $detalhes]);
+		
+		return view('Series.listar',['series' => $series]);
 	}
 	public function create(){
 		return view('Series.adicionar');
@@ -19,8 +19,15 @@ class listaController extends Controller
 		return view('editar_Series',['series'=> $series]);
 	}
 	public function store(Request $request){
-		//DB::beginTransaction();
-		Serie::create($request->all());
+            //DB::beginTransaction();
+            //pegar apenas dados especificos
+            $data=$request->only('nome','avaliacao','genero','assistido');
+            if($request->imagem->isValid()){
+                $imagemPath=$request->file('imagem')->store('Imagens');
+                $data['imagem']=$imagemPath;//adicionar caminho da imagem
+            }
+		//Serie::create($request->all());
+                Serie::create($data);
 		//DB::commit();
 		return redirect()->route('listar_Series');
 	}
@@ -33,13 +40,10 @@ class listaController extends Controller
 		$serie = Serie::find($id);
 		$serie->nome = $request->nome;
 		$serie->genero = $request->genero;
-		
+		$serie->assistido = $request->assistido;
+                $serie->avaliacao = $request->avaliacao;
 		$serie->save();
 		return redirect()->route('listar_Series');
 	}
-	
-	
-	
-	
-  
+
 }

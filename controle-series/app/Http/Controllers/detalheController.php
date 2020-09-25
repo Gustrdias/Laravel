@@ -8,34 +8,34 @@ use Illuminate\Http\Request;
 class detalheController extends Controller
 {
     public function index(Request $request, $serieId) {
-		$Detalhes = Detalhe::query()->where('serie_id',$serieId)->get();
-		$Serie = Serie::find($serieId);
-		return view('Detalhes.listar', ['Detalhes' => $Detalhes,'serieId' => $serieId,'serieNome' => $Serie->nome]);
+		$detalhes = Detalhe::query()->where('serie_id',$serieId)->get();
+		$serie = Serie::find($serieId);
+		return view('Detalhes.detalhes', ['detalhes' => $detalhes,'serieId' => $serieId,'serieNome' => $serie->nome]);
 	}
 	public function create($serieId){
-		return view('Detalhes.adicionar', ['serieId' => $serieId]);
+                $serie = Serie::find($serieId);
+		return view('Detalhes.adicionar', ['serieId' => $serieId,'serieNome' => $serie->nome]);
 	}
 	public function edit($serieId, $id){
-		$Detalhe = Detalhe::find($id);
-		return view('Detalhes.editar', ['Detalhe' => $Detalhe,'serieId' => $serieId]);
+		$detalhe = Detalhe::find($id);
+		return view('Detalhes.editar', ['detalhe' => $detalhe,'serieId' => $serieId]);
 	}
 	public function store(Request $request, $serieId){
-		
-		$Detalhe = new Detalhe($request->all());
-		$Serie = Serie::find($serieId);
-		$Serie->detalhes()->save($Detalhe);
-		return redirect()->route('Detalhes', ['serieId' => $serieId]);
+		$detalhe = new Detalhe($request->all());
+		$serie = Serie::find($serieId);
+		$serie->detalhes()->save($detalhe);
+		return redirect()->route('detalhes', ['serieId' => $serieId]);
 	}
 	public function destroy($id, $serieId){
-		$Detalhe = Detalhe::find($id);
-		$Detalhe->delete();
-		return redirect()->route('Detalhes', ['serieId' => $serieId]);
+		$detalhe = Detalhe::find($id);
+		$detalhe->delete();
+		return redirect()->route('detalhes', ['serieId' => $serieId]);
 	}
 	public function update(Request $request, $serieId, $id){
-		$Detalhe = Detalhe::find($id);
-		$Detalhe->descricao = $request->descricao;
+		$detalhe = Detalhe::find($id);
+		$detalhe->descricao = $request->descricao;
 
-		$Detalhe->save();
-		return redirect()->route('Detalhes', ['serieId' => $serieId]);
+		$detalhe->save();
+		return redirect()->route('detalhes', ['serieId' => $serieId]);
 	}
 }

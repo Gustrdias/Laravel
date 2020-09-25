@@ -18,13 +18,12 @@ class CriarTabelaDetalhes extends Migration
 			$table->integer('ano');
 			$table->string('duracao');
 			$table->integer('temporada');
-			$table->integer('episodios');
 			$table->string('idioma');
 			$table->string('legenda');
 			$table->string('comentario');
 			$table->string('local');
-			$table->integer('series_id');
-			$table->foreign('series_id')->references('id')->on('series');
+			$table->integer('serie_id');
+			$table->foreign('serie_id')->references('id')->on('series');
 		});
     }
 
