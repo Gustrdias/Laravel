@@ -12,8 +12,12 @@
     <body style="background-image:url('{{asset("storage/Imagens/series.jpg")}}'); ">
         @auth
             <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
-            <a class="navbar navbar-expand-lg" href="{{ route('listar_Series') }}">Home</a>
-            <a href="/logout" class="text-danger">Sair</a>
+			@if(\Route::current()->getName() != 'listar_Series')
+            <a class="navbar navbar-expand-lg" href="{{ route('listar_Series') }}">Página inicial</a>
+			@else
+			<br>
+			@endif
+            <a href="/logout" class="text-danger">Deslogar</a>
             </nav>
         @endauth
 	@yield('conteudo')

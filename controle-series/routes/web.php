@@ -30,16 +30,16 @@ Route::delete('/series/{serieId}/detalhes/{id}', 'detalheController@destroy');
 
 Route::get('/series/{serieId}/detalhes/temporada/create', 'temporadaController@create');
 Route::post('/series/{serieId}/detalhes/temporada', 'temporadaController@store');
-Route::get('/series/{serieId}/detalhes/temporada/{tempId}/edit', 'temporadaController@edit');
-Route::put('/series/{serieId}/detalhes/temporada/{tempId}', 'temporadaController@update');
-Route::delete('/series/{serieId}/detalhes/temporada/{tempId}', 'temporadaController@destroy');
+Route::get('/series/{serieId}/detalhes/temporada/{tempoId}/edit', 'temporadaController@edit');
+Route::put('/series/{serieId}/detalhes/temporada/{tempoId}', 'temporadaController@update');
+Route::delete('/series/{serieId}/detalhes/temporada/{tempoId}', 'temporadaController@destroy');
 
-Route::get('/series/{serieId}/detalhes/temporada/{{tempId}}/episodios', 'episodioController@index')->name('listar_Episodios');
-Route::get('/series/{serieId}/detalhes/temporada/{{tempId}}/episodios/create', 'episodioController@create');
-Route::post('/series/{serieId}/detalhes/temporada/{{tempId}}/episodios', 'episodioController@store');
-Route::get('/series/{serieId}/detalhes/temporada/{tempId}/episodios/{epId}/edit', 'temporadaController@edit');
-Route::put('/series/{serieId}/detalhes/temporada/{tempId}/episodios/{epId}', 'episodioController@update');
-Route::delete('/series/{serieId}/detalhes/temporada/{tempId}/episodios/{epId}', 'episodioController@destroy');
+Route::get('/series/{serieId}/detalhes/temporada/{tempoId}/episodios', 'episodioController@index')->name('listar_Episodios');
+Route::get('/series/{serieId}/detalhes/temporada/{tempoId}/episodios/create', 'episodioController@create');
+Route::post('/series/{serieId}/detalhes/temporada/{tempoId}/episodios', 'episodioController@store');
+Route::get('/series/{serieId}/detalhes/temporada/{tempoId}/episodios/{epId}/edit', 'episodioController@edit');
+Route::put('/series/{serieId}/detalhes/temporada/{tempoId}/episodios/{epId}', 'episodioController@update');
+Route::delete('/series/{serieId}/detalhes/temporada/{tempoId}/episodios/{epId}', 'episodioController@destroy');
 
 Auth::routes();
 Route::get('/login','Auth\LoginController@index')->name('login');

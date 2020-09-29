@@ -19,8 +19,8 @@ class CriarTabelaEpisodios extends Migration
 			$table->integer('numero');
 			$table->string('comentario')->nullable();
 			$table->string('imagem');
-			$table->integer('temporadas_id');
-			$table->foreign('temporadas_id')->references('id')->on('temporadas');
+			$table->integer('temporada_id');
+			$table->foreign('temporada_id')->references('id')->on('temporadas')->onDelete('cascade');
 		});
     }
 

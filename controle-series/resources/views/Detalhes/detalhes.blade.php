@@ -20,8 +20,8 @@
         <ul class="nav nav-tabs fundot">
           <li class="active"><a data-toggle="tab" style="">Temporadas</a></li>
           <li><a href="/series/{{$serieId}}/detalhes/temporada/create" class="btn btn-primary btn-sm mr-2">Nova Temporada</a></li>
-          @if(empty($detalhes))
-          <li><a href="/series/{{$serieId}}/detalhes/create" class="btn btn-warning btn-sm mr-2">Criar página</a></li>
+          @if(count($detalhes) == 0)
+          <li><a href="/series/{{$serieId}}/detalhes/create" class="btn btn-warning btn-sm mr-2">Modelar página</a></li>
           @else
             @foreach($detalhes as $detalhe)
               <li><a href="/series/{{$serieId}}/detalhes/{{$detalhe->id}}/edit" class="btn btn-warning btn-sm mr-2">Editar página</a></li>
@@ -32,8 +32,8 @@
     <table>
         <tr> 
             @foreach($temporadas as $temporada)
-            <td>
-                <div style="padding-left: 50px;">
+            <td style="float:left">
+                <div>
                      <div class="item fundot">
                             <div class="temporada txtB" style="text-align: center;"><h4>{{$temporada->numero}}ª temporada</h4></div>
                             <a href="/series/{{$serieId}}/detalhes/temporada/{{$temporada->id}}/episodios">

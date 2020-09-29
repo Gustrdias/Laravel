@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Episodio extends Model
 {
-   protected $fillable=['nome','numero','comentario','imagem'];
+   protected $fillable=['titulo','numero','comentario','imagem'];
 	public $timestamps=false;
 	
     public function temporadas(){

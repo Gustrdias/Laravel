@@ -24,7 +24,7 @@ class EpisodiosFormRequest extends FormRequest
     public function rules()
     {
         return [
-           'numero' => 'required|unique:episodios',
+           'numero' => 'required',
            'imagem' => 'required',
            'titulo' => 'required|unique:episodios'
         ];

@@ -1,6 +1,14 @@
 @extends('layout')
 	@section('conteudo')
-	
+	@if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+                </ul>
+            </div>
+        @endif
 <div class="container">
     <div class="row">
 	<div class="col-sm-3"></div>
@@ -14,11 +22,12 @@
                 <label class='txtB' for="local">Local </label><br>
                 <input type="text" id="local" name="local" value="{{$detalhe->local}}"><br>            
                 <label class='txtB' for="comentario">Comentário </label><br>
-                <textarea type="text" style="color: black; " id="comentario" name="comentario" value="{{$detalhe->comentario}}"></textarea><br>     
+                <textarea type="text" style="color: black; " id="comentario" name="comentario">{{$detalhe->comentario}}</textarea><br>     
                 <label class='txtB' for="comentario">Imagem do background: </label><br>
                 <input type="file" name="imagem" id="imagem" value="{{$detalhe->imagem}}"><br>
                 <button class="btn btn-primary mt-2">Editar</button>
             </form>
+			<a class="btn btn-warning mt-2" style="float:right;" href="{{ route('detalhes', ['serieId' => $serieId]) }}">Voltar</a><br>
         </div>
         <div class="col-sm-3"></div>
     </div>

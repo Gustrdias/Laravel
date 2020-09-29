@@ -53,7 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nome' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:4'],
         ]);
     }
 
@@ -75,8 +75,10 @@ class RegisterController extends Controller
         return view('Autentificacao.register');
     }
     public function store(Request $request) {
+		$this->validator($request->all())->validate();
         $data = $request->except('_token');
         $data['password'] = Hash::make($data['password']);
+		
         $user = User::create($data);
         Auth::login($user);
         return redirect()->route('listar_Series');

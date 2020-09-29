@@ -12,7 +12,7 @@
             </div>
              @foreach($series as $serie)
             <div class="row" style=" border-width:1px; border-style:solid; ">
-                <div class="col-sm-3 serie-image" style="background-image: url('{{asset("storage/".$serie->imagem)}}');" ></div>
+                <div class="col-sm-3 serie-image bordaF" style="background-image: url('{{asset("storage/".$serie->imagem)}}');" ></div>
                 <div class="col-sm-3 txtB" >
                     <div><h2>{{$serie->nome}}</h2></div>
                     <div><h5>Genero: {{$serie->genero}}</h5></div>   

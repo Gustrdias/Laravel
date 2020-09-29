@@ -1,6 +1,14 @@
 @extends('layout')
 	@section('conteudo')
-	
+	@if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+                </ul>
+            </div>
+        @endif
 <div class="container">
     <div class="row">
         <div class="col-sm-3"></div>
@@ -12,7 +20,7 @@
                 <label class="txtB" for="nomeSerie">Nome</label><br>
                 <p><input type="text"  id="nome" name="nome" value="{{$serie->nome}}"></p>
                 <p><label class="txtB" for="genero">Genero </label>
-                <select id="genero" name="genero" value="{{$serie->genero}}">
+                <select id="genero" name="genero">
                     <option value="Ação">Ação</option>
                     <option value="Comédia">Comédia</option>
                     <option value="Drama">Drama</option>
@@ -32,6 +40,7 @@
                 <p><input type="file" name="imagem" id="imagem" ></p>
                 <p><button class="btn btn-primary mt-2">Editar</button></p>
             </form>
+			<a class="btn btn-warning mt-2" style="float:right;" href="{{ url()->previous() }}">Voltar</a><br>
         </div>
         <div class="col-sm-3"></div>
     </div>

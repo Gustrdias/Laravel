@@ -26,6 +26,7 @@
                 <input type="file" name="imagem" id="imagem" ><br>
                 <p><button class="btn btn-primary mt-2">Adicionar</button></p>
             </form>
+			<a class="btn btn-warning mt-2" style="float:right;" href="{{ route('detalhes', ['serieId' => $serieId]) }}">Voltar</a><br>
         </div>
     <div class="col-sm-3"></div>
   </div>

@@ -49,11 +49,13 @@ class detalheController extends Controller
 	$detalhe->ano = $request->ano;
         $detalhe->local = $request->local;
         $detalhe->comentario = $request->comentario;
-        if($request->imagem->isValid()){
-            \Storage::delete($detalhe->imagem);
-            $imagemPath=$request->file('imagem')->store('Imagens');
-            $detalhe->imagem = $imagemPath;//adicionar caminho da imagem
-        }
+		if(!is_null($request->imagem)){
+			if($request->imagem->isValid()){
+				\Storage::delete($detalhe->imagem);
+				$imagemPath=$request->file('imagem')->store('Imagens');
+				$detalhe->imagem = $imagemPath;//adicionar caminho da imagem
+			}
+		}
 	$detalhe->save();
 	return redirect()->route('detalhes', ['serieId' => $serieId]);
     }

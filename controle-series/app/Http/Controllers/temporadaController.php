@@ -41,11 +41,13 @@ class temporadaController extends Controller
     public function update(Request $request, $serieId, $id){
 	$temporada = Temporada::find($id);
 	$temporada->numero = $request->numero;
+	if(!is_null($request->imagem)){
 	if($request->imagem->isValid()){
             \Storage::delete($temporada->imagem);
             $imagemPath=$request->file('imagem')->store('Imagens');
             $temporada->imagem = $imagemPath;//adicionar caminho da imagem
         }
+	}
 	$temporada->save();
 	return redirect()->route('detalhes', ['serieId' => $serieId]);
     }

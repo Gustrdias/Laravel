@@ -24,7 +24,7 @@ class TemporadasFormRequest extends FormRequest
     public function rules()
     {
         return [
-          'numero' => 'required|unique:temporadas',
+          'numero' => 'required',
           'imagem' => 'required'
         ];
     }

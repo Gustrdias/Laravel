@@ -39,7 +39,7 @@ class SerieController extends Controller
 		$serie = Serie::find($id);
                  \Storage::delete($serie->imagem);
 		$serie->delete();
-		return redirect()->route('listar_series');
+		return redirect()->route('listar_Series');
 	}
 	public function update(Request $request, $id){
 		$serie = Serie::find($id);
@@ -47,11 +47,13 @@ class SerieController extends Controller
 		$serie->genero = $request->genero;
 		$serie->assistido = $request->assistido;
                 $serie->avaliacao = $request->avaliacao;
+				if(!is_null($request->imagem)){
                  if($request->imagem->isValid()){
                     \Storage::delete($serie->imagem);
                     $imagemPath=$request->file('imagem')->store('Imagens');
                      $serie->imagem = $imagemPath;//adicionar caminho da imagem
                  }
+				}
                
 		$serie->save();
 		return redirect()->route('listar_Series');
