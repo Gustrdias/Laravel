@@ -16,14 +16,11 @@ class CriarTabelaDetalhes extends Migration
         Schema::create('detalhes', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('ano');
-			$table->string('duracao');
-			$table->integer('temporada');
-			$table->string('idioma');
-			$table->string('legenda');
-			$table->string('comentario');
+			$table->string('comentario')->nullable();
 			$table->string('local');
+                        $table->string('imagem')->nullable();
 			$table->integer('serie_id');
-			$table->foreign('serie_id')->references('id')->on('series');
+			$table->foreign('serie_id')->references('id')->on('series')->onDelete('cascade');
 		});
     }
 

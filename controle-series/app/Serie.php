@@ -2,6 +2,7 @@
 
 namespace App;
 use App\Detalhe;
+use App\Temporada;
 use Illuminate\Database\Eloquent\Model;
 
 class Serie extends Model
@@ -11,5 +12,8 @@ class Serie extends Model
 	
 	public function detalhes(){
 		return $this->hasMany(Detalhe::class);
+	}
+        public function temporadas(){
+		return $this->hasMany(Temporada::class);
 	}
 }

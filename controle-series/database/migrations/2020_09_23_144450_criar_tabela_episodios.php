@@ -15,9 +15,9 @@ class CriarTabelaEpisodios extends Migration
     {
          Schema::create('episodios', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('nome');
+			$table->string('titulo');
 			$table->integer('numero');
-			$table->string('comentario');
+			$table->string('comentario')->nullable();
 			$table->string('imagem');
 			$table->integer('temporadas_id');
 			$table->foreign('temporadas_id')->references('id')->on('temporadas');

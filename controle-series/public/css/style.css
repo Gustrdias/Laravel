@@ -11,6 +11,43 @@ and open the template in the editor.
 
 .item {
   float: left;
-    width: 15%;
-    padding: 3px;
+  padding: 3px;
+}
+.imgT{ 
+   height: 225px;
+   width: 150px;
+}
+
+.formulario{
+    background: rgba(0, 0, 0, 0.7);
+    border-width: 2px; 
+    border-style: solid; 
+    text-align: center;
+   
+}
+.txtB{
+    color: white;
+}
+.borda{
+    border-bottom: 4px dotted blue;
+}
+.ita{
+    font-style: italic;
+}
+.serie-image{
+    width: 150px;
+    height: 150px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.fundot{
+    background: rgba(0, 0, 0, 0.7);
+}
+.fundoTop{
+    margin-bottom: 0px;
+    background-size: cover;
+    background-position: 50% 30%;
+    padding: 70px 0;
 }

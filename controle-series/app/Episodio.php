@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Temporada;
 use Illuminate\Database\Eloquent\Model;
 
 class Episodio extends Model

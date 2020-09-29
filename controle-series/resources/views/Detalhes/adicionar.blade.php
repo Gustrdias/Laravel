@@ -1,47 +1,33 @@
 @extends('layout')
 	@section('conteudo')
-	
+	@if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+                </ul>
+            </div>
+        @endif
 <div class="container">
-	<div class="row">
-	<div class="col-sm-2">
-	</div>
-	<div class="col-sm-6">
-  <h2>Cadastrar detalhes Serie {{$serieNome}}</h2>        
-	<form method="post" action="/Series/{{$serieId}}/detalhes">
-	@csrf
-            <div>
-		<label for="temporada">Temporadas:</label>
-                <input type="text"  id="temporada" name="temporada">	
-            </div>
-            <div>
-		<label  for="ano">Ano: </label>
-                <input type="text" id="ano" name="ano">
-            </div>
-            <div>
-		<label  for="duracao">Duração </label>
-                <input type="text" id="duracao" name="duracao">
-            </div>
-            <div>
-		<label  for="idioma">Idioma </label>
-                <input type="text" id="idioma" name="idioma">
-            </div>
-            <div>
-		<label  for="legenda">Legenda </label>
-                <input type="text" id="legenda" name="legenda">
-            </div>
-            <div>
-		<label  for="local">Local </label>
-                <input type="text" id="local" name="local">
-            </div>
-            <div>
-		<label  for="comentario">Comentario </label>
-                <input type="text" id="comentario" name="comentario">
-            </div>
-		<button class="btn btn-primary mt-2">Adicionar</button>
-	</form>
-  </div>
-  <div class="col-sm-2">
-	</div>
+    <div class="row">
+	<div class="col-sm-3"></div>
+        <div class="col-sm-6 formulario" style="">
+            <h2 class="txtB">Cadastrar detalhes Série {{$serieNome}}</h2>        
+            <form method="post" action="/series/{{$serieId}}/detalhes" enctype="multipart/form-data">
+            @csrf              
+                <label class="txtB" for="ano">Ano </label><br>
+                <input type="text" id="ano" name="ano"><br>         
+                <label class="txtB" for="local">Local </label><br>
+                <input type="text" id="local" name="local"><br>            
+                <label class="txtB" for="comentario">Comentário </label><br>
+                <textarea type="text" style="color: black; " id="comentario" name="comentario"></textarea><br>     
+                <label class="txtB" for="comentario">Imagem do background </label><br>
+                <input type="file" name="imagem" id="imagem" ><br>
+                <p><button class="btn btn-primary mt-2">Adicionar</button></p>
+            </form>
+        </div>
+    <div class="col-sm-3"></div>
   </div>
 </div>
    @endsection

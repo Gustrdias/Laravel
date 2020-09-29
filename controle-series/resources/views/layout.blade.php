@@ -9,7 +9,13 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
     </head>
-    <body>
+    <body style="background-image:url('{{asset("storage/Imagens/series.jpg")}}'); ">
+        @auth
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+            <a class="navbar navbar-expand-lg" href="{{ route('listar_Series') }}">Home</a>
+            <a href="/logout" class="text-danger">Sair</a>
+            </nav>
+        @endauth
 	@yield('conteudo')
-	 </body>
+    </body>
 </html>

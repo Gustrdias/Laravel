@@ -17,7 +17,7 @@ class CriarTabelaSeries extends Migration
 			$table->increments('id');
 			$table->string('nome');
 			$table->string('genero');
-			$table->float('avaliacao');
+			$table->float('avaliacao')->nullable();
 			$table->string('assistido');
 			$table->string('imagem')->nullable();//caminho para uma imagem
 		});

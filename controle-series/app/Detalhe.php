@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Detalhe extends Model
 {
-    protected $fillable=['temporada','ano','duracao','idioma','legenda','comentario','local'];
+    protected $fillable=['ano','imagem','comentario','local'];
     public $timestamps=false;
 	
     public function series(){

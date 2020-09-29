@@ -16,11 +16,9 @@ class CriarTabelaTemporadas extends Migration
          Schema::create('temporadas', function(Blueprint $table) {
 			$table->increments('id');
 			$table->integer('numero');
-                        $table->integer('episodios');
-			$table->string('comentario');
 			$table->string('imagem');
-			$table->integer('detalhes_id');
-			$table->foreign('detalhes_id')->references('id')->on('detalhes');
+			$table->integer('serie_id');
+			$table->foreign('serie_id')->references('id')->on('series')->onDelete('cascade');
 		});
     }
     /**

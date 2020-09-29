@@ -6,7 +6,7 @@
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6 formulario">
             <h2 class='txtB'>Editar Detalhes</h2>        
-            <form method="post" action="/series/{{$serieId}}/detalhes/{{$detalhe->id}}" enctype="multipart/form-data">
+            <form method="post" action="/Series/{{$serieId}}/detalhes/{{$detalhe->id}}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <label class='txtB' for="ano">Ano </label><br>
